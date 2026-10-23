@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.egg-info/
+.venv/
+.pytest_cache/
+
+# Datos y artefactos pesados: se regeneran con los scripts
+data/
+runs/*
+!runs/.gitkeep
+*.pt
+*.npz
+
+# Los resultados agregados SÍ se versionan (results/summary.md, dataset_info.json)
