@@ -12,7 +12,7 @@ demostración: **reproducibilidad, evaluación honesta y límites declarados**.
 
 ## Resultados
 
-Ejecutados el 19/11/2026 en Colab con `scripts/run_all.sh` (5 semillas por modelo, PneumoniaMNIST 28×28).
+Ejecutados el 20/10/2026 en Colab con `scripts/run_all.sh` (5 semillas por modelo, PneumoniaMNIST 28×28).
 Tabla generada por `python -m medcv.aggregate` (`results/summary.md`), sin cambios a mano. Umbral de decisión
 elegido solo en validación con el índice de Youden; test evaluado una vez.
 
