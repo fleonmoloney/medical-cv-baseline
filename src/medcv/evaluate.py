@@ -33,6 +33,18 @@ def youden_threshold(y_true: np.ndarray, p1: np.ndarray) -> float:
     return float(thr[np.argmax(tpr - fpr)])
 
 
+def min_sensitivity_threshold(y_true: np.ndarray, p1: np.ndarray, min_sensitivity: float = 0.95) -> float:
+    """Umbral con la mayor especificidad que aún alcanza `min_sensitivity` (criterio alternativo a Youden).
+
+    Igual que Youden, se calcula SOLO con validación. Si ningún umbral llega a la sensibilidad pedida,
+    devuelve el de mayor sensibilidad.
+    """
+    fpr, tpr, thr = roc_curve(y_true, p1)
+    ok = np.where(tpr >= min_sensitivity)[0]
+    idx = int(ok[0]) if len(ok) else int(np.argmax(tpr))  # fpr no decrece: el primero es el de menor fpr
+    return float(thr[idx])
+
+
 def expected_calibration_error(y_true: np.ndarray, y_prob: np.ndarray, n_bins: int = 10) -> float:
     """ECE con confianza de la clase predicha (top-label)."""
     probs = np.stack([1 - y_prob, y_prob], axis=1) if y_prob.ndim == 1 else y_prob

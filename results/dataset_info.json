@@ -1,0 +1,60 @@
+{
+  "meta": {
+    "name": "pneumoniamnist",
+    "task": "binary-class",
+    "n_channels": 1,
+    "n_classes": 2,
+    "labels": {
+      "0": "normal",
+      "1": "pneumonia"
+    },
+    "size": 28
+  },
+  "splits": {
+    "train": {
+      "n": 4708,
+      "image_shape": [
+        28,
+        28
+      ],
+      "class_counts": {
+        "normal": 1214,
+        "pneumonia": 3494
+      },
+      "class_fraction": {
+        "normal": 0.2579,
+        "pneumonia": 0.7421
+      }
+    },
+    "val": {
+      "n": 524,
+      "image_shape": [
+        28,
+        28
+      ],
+      "class_counts": {
+        "normal": 135,
+        "pneumonia": 389
+      },
+      "class_fraction": {
+        "normal": 0.2576,
+        "pneumonia": 0.7424
+      }
+    },
+    "test": {
+      "n": 624,
+      "image_shape": [
+        28,
+        28
+      ],
+      "class_counts": {
+        "normal": 234,
+        "pneumonia": 390
+      },
+      "class_fraction": {
+        "normal": 0.375,
+        "pneumonia": 0.625
+      }
+    }
+  }
+}

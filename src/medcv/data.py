@@ -7,6 +7,7 @@ se puede probar con datos sintéticos sin descargar nada.
 
 from __future__ import annotations
 
+from pathlib import Path
 from typing import Dict, Tuple
 
 import numpy as np
@@ -70,6 +71,7 @@ def load_medmnist(
     if info["task"] not in ("binary-class", "multi-class"):
         raise ValueError(f"Tarea no soportada en este repo: {info['task']}")
     cls = getattr(medmnist, info["python_class"])
+    Path(root).mkdir(parents=True, exist_ok=True)  # medmnist exige que la carpeta exista
     splits = {}
     for split in ("train", "val", "test"):
         d = cls(split=split, download=download, root=root, size=size)
